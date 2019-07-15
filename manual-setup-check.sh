@@ -87,7 +87,7 @@ delimiter
 
 ## 7. Ruby Version Manager (rvm)
 print_table_results "Installed RVM" "command -v rvm >/dev/null 2>&1 && which rvm | grep -q '/Users/.*/\.rvm/bin/rvm'"
-print_table_results "Default RVM (2.3.3)" "command -v rvm >/dev/null 2>&1 && rvm list | grep -Fq '=* ruby-2.3.3 [ x86_64 ]'"
+print_table_results "Default RVM (2.6.1)" "command -v rvm >/dev/null 2>&1 && rvm list | grep -Fq '=* ruby-2.6.1 [ x86_64 ]'"
 print_table_results "Test RVM PATH" "command -v rvm >/dev/null 2>&1 && rvm list | grep -Fqv 'Warning! PATH'"
 delimiter
 
@@ -99,9 +99,9 @@ delimiter
 ## 9. Learn
 ## See Student Configuration section.
 
-## 10. Atom
-print_table_results "Installed Atom" "command -v atom >/dev/null 2>&1 && atom -v | grep -q 'Atom'"
-print_table_results "Learn Editor" "cat ~/.learn-config | grep ':editor:' | grep -q 'atom'"
+## 10. VSCode
+print_table_results "Installed VSCode" "command -v code >/dev/null 2>&1 && code -v | grep -q 'Code'"
+print_table_results "Learn Editor" "cat ~/.learn-config | grep ':editor:' | grep -q 'code'"
 delimiter
 
 ## 11. Gems (more)
@@ -133,8 +133,8 @@ delimiter
 
 ## 15. Java
 # https://stackoverflow.com/questions/36388348/check-if-java-installed-with-bash
-print_table_results "Installed Java" 'command -v java >/dev/null 2>&1 && java -version 2>&1 >/dev/null | grep -q "java version"'
-delimiter
+# print_table_results "Installed Java" 'command -v java >/dev/null 2>&1 && java -version 2>&1 >/dev/null | grep -q "java version"'
+# delimiter
 
 ## 16. Google Chrome
 # https://unix.stackexchange.com/questions/63387/single-command-to-check-if-file-exists-and-print-custom-message-to-stdout
@@ -152,8 +152,8 @@ delimiter
 
 ## 5. git
 echo "Github"
-print_data_row "Username" "command -v git >/dev/null 2>&1 && git config github.user"
-print_data_row "Email" "command -v git >/dev/null 2>&1 && git config github.email"
+print_data_row "Username" "command -v git >/dev/null 2>&1 && git config user.name"
+print_data_row "Email" "command -v git >/dev/null 2>&1 && git config user.email"
 delimiter
 
 ## 9. Learn
