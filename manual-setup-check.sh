@@ -78,7 +78,9 @@ delimiter
 print_table_results "Installed git" "command -v git >/dev/null 2>&1 && git version | grep -q 'git version'"
 print_table_results "Github email config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.email='"
 print_table_results "Github user config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.name='"
-print_table_results "SSH key for Github" "command -v git >/dev/null 2>&1 && ssh -T git@github.com | grep -vq 'Permission denied (publickey)'"
+ssh_command "ssh -T git@github.com | grep 'Permission denied (publickey)'"
+ssh_rejection_message "git@github.com: Permission denied (publickey)."
+print_table_results "SSH key for Github" "command -v git >/dev/null 2>&1 && [$ssh_command != $ssh_rejection_message]"
 delimiter
 
 ## 6. Support Libraries
