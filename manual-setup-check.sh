@@ -76,8 +76,8 @@ delimiter
 ## 5. git
 # https://stackoverflow.com/questions/12254076/how-do-i-show-my-global-git-config
 print_table_results "Installed git" "command -v git >/dev/null 2>&1 && git version | grep -q 'git version'"
-print_table_results "Github user config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'github.user='"
-print_table_results "Github email config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'github.email='"
+print_table_results "Github email config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.email='"
+print_table_results "Github user config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.name='"
 delimiter
 
 ## 6. Support Libraries
