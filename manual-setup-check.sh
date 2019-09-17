@@ -75,11 +75,13 @@ delimiter
 
 ## 5. git
 # https://stackoverflow.com/questions/12254076/how-do-i-show-my-global-git-config
+# Messages to test for when testing ssh key:
+ssh_command echo ssh -T git@github.com | grep 'Permission denied (publickey)'
+ssh_rejection_message "echo git@github.com: Permission denied (publickey)."
+# Table results:
 print_table_results "Installed git" "command -v git >/dev/null 2>&1 && git version | grep -q 'git version'"
 print_table_results "Github email config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.email='"
 print_table_results "Github user config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.name='"
-ssh_command "ssh -T git@github.com | grep 'Permission denied (publickey)'"
-ssh_rejection_message "git@github.com: Permission denied (publickey)."
 print_table_results "SSH key for Github" "command -v git >/dev/null 2>&1 && [$ssh_command != $ssh_rejection_message]"
 delimiter
 
