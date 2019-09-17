@@ -78,6 +78,7 @@ delimiter
 print_table_results "Installed git" "command -v git >/dev/null 2>&1 && git version | grep -q 'git version'"
 print_table_results "Github email config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.email='"
 print_table_results "Github user config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.name='"
+print_table_results "SSH key for Github" "command -v git >/dev/null 2>&1 && ssh -T git@github.com | grep -v 'Permission denied (publickey)'
 delimiter
 
 ## 6. Support Libraries
@@ -106,6 +107,7 @@ delimiter
 
 ## 11. Gems (more)
 # print_table_results "Gem: phantomjs" "command -v gem >/dev/null 2>&1 && gem list | grep -q 'phantomjs'"
+#  Removed phantomjs because I'm not sure what it's doing here?
 print_table_results "Gem: nokogiri" "command -v gem >/dev/null 2>&1 && gem list | grep -q 'nokogiri'"
 delimiter
 
@@ -125,8 +127,8 @@ delimiter
 # https://stackoverflow.com/questions/39190575/bash-script-for-changing-nvm-node-version
 . ~/.nvm/nvm.sh
 print_table_results "Installed NVM" "command -v nvm >/dev/null 2>&1 && nvm --version | grep -q '[0-9]*\.[0-9]*\.[0-9]*'"
-print_table_results "Installed Node" "command -v node | grep -q '/Users/.*/.nvm/versions/node/v.*/bin/node'"
-print_table_results "Default Node (11.x)" 'command -v nvm >/dev/null 2>&1 && nvm version default | grep -q "v11"'
+print_table_results "Installed Node" "command -v node | grep -q '/node'"
+print_table_results "Default Node (11.x)" 'command -v nvm >/dev/null 2>&1 && node --version | grep -q "v11\|v12"'
 # print_table_results "Default Node (10.x)" 'command -v nvm >/dev/null 2>&1 && nvm version default | grep -q "v10"'
 # print_table_results "Default Node (6.11.2)" 'command -v nvm >/dev/null 2>&1 && nvm version default | grep -q "v6.11.2"'
 delimiter
