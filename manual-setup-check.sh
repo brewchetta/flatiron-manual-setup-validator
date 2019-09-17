@@ -101,7 +101,7 @@ delimiter
 
 ## 10. VSCode
 print_table_results "Installed VSCode or Atom" "(command -v code >/dev/null 2>&1 && code -h | grep -q 'Visual Studio Code') || (command -v atom >/dev/null 2>&1 && atom -h | grep -q 'Atom Editor')"
-print_table_results "Learn Editor" "cat ~/.learn-config | grep ':editor:' | grep -q 'code'"
+print_table_results "Learn Editor" "cat ~/.learn-config | grep ':editor:' | grep -q 'code\|atom'"
 delimiter
 
 ## 11. Gems (more)
@@ -127,7 +127,7 @@ delimiter
 . ~/.nvm/nvm.sh
 print_table_results "Installed NVM" "command -v nvm >/dev/null 2>&1 && nvm --version | grep -q '[0-9]*\.[0-9]*\.[0-9]*'"
 print_table_results "Installed Node" "command -v node | grep -q '/node'"
-print_table_results "Default Node (11.x)" 'command -v nvm >/dev/null 2>&1 && node --version | grep -q "v11\|v12"'
+print_table_results "Default Node (11.x)" 'command -v nvm >/dev/null 2>&1 && node --version | grep -q "v11\|v12\|v13"'
 # print_table_results "Default Node (10.x)" 'command -v nvm >/dev/null 2>&1 && nvm version default | grep -q "v10"'
 # print_table_results "Default Node (6.11.2)" 'command -v nvm >/dev/null 2>&1 && nvm version default | grep -q "v6.11.2"'
 delimiter
