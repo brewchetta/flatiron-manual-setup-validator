@@ -50,6 +50,21 @@ configuration_header () {
   printf "\n${CYAN}************* CONFIGURATION **************${NC}\n\n"
 }
 
+check_git_ssh () {
+  # Attempt to ssh to GitHub
+  ssh -T git@github.com &>/dev/null
+  RET=$?
+  if [ $RET == 1 ]; then
+    # user is authenticated, but fails to open a shell with GitHub
+    return 0
+  elif [ $RET == 255 ]; then
+    # user is not authenticated
+    return 1
+  else
+    echo "unknown exit code in attempt to ssh into git@github.com"
+  fi
+  return 2
+}
 
 ## Validation
 validation_header
@@ -79,7 +94,7 @@ ssh_command echo ssh -T git@github.com | grep "You've successfully authenticated
 print_table_results "Installed git" "command -v git >/dev/null 2>&1 && git version | grep -q 'git version'"
 print_table_results "Github email config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.email='"
 print_table_results "Github user config" "command -v git >/dev/null 2>&1 && git config --list | grep -q 'user.name='"
-print_table_results "Linked SSH key" "command -v ssh -T git@github.com | grep -q 'successfully authenticated'"
+print_table_results "Linked SSH key" "command -v ssh >/dev/null 2>&1 && check_git_ssh"
 delimiter
 
 ## 6. Support Libraries
