@@ -100,7 +100,7 @@ delimiter
 ## See Student Configuration section.
 
 ## 10. VSCode
-print_table_results "Installed VSCode" "command -v code >/dev/null 2>&1 && code -v | grep -q 'Code'"
+print_table_results "Installed VSCode" "command -v code >/dev/null 2>&1 && code -h | grep -q 'Visual Studio Code'"
 print_table_results "Learn Editor" "cat ~/.learn-config | grep ':editor:' | grep -q 'code'"
 delimiter
 
