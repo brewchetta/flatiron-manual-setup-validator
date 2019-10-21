@@ -6,5 +6,5 @@ Script to check that the Manual Setup guide for Flatiron School was executed cor
 Example run command:
 
 ```sh
-curl -so- https://raw.githubusercontent.com/brewchetta/flatiron-manual-setup-validator/master/manual-setup-check.sh | bash 2> /dev/null
+bash <(curl -s https://raw.githubusercontent.com/brewchetta/flatiron-manual-setup-validator/master/manual-setup-check.sh)
 ```
